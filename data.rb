@@ -3,25 +3,32 @@ def competitors
       {
           :uni => "TUD",
           :name => "Seppl",
-          :riege => 10,
-          :lkl => 10
+          :riege => 1,
+          :km => 2,
+          :geschlecht => 'w',
+          :boden => -1,
+          :pauschenpferd => -1,
+          :ringe => -1,
+          :sprung => -1,
+          :barren => -1,
+          :reck => -1,
+          :stufenbarren => -1,
+          :schwebebalken => -1
       },
       {
           :uni => "TUD",
           :name => "Aprok",
-          :riege => 102,
-          :lkl => 120
-      }
-  ]
-end
-
-def tools
-  [
-      {
-          :name=>"Boden",
-      },
-      {
-          :name=>"Reck",
+          :riege => 2,
+          :km => 3,
+          :geschlecht => 'm',
+          :boden => -1,
+          :pauschenpferd => -1,
+          :ringe => -1,
+          :sprung => -1,
+          :barren => -1,
+          :reck => -1,
+          :stufenbarren => -1,
+          :schwebebalken => -1
       }
   ]
 end
