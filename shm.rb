@@ -1,8 +1,8 @@
 require 'sinatra'
-require 'data'
+require_relative 'data'
 
 
 
-get '/hi' do
-  data()[1].to_s
+get '/' do
+  erb :login, :locals=>{:karis=>karis()}
 end

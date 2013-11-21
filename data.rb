@@ -1,3 +1,20 @@
+def karis
+  [
+      {
+          :name => "lisa"
+      },
+      {
+          :name => "maggy"
+      },
+      {
+          :name => "bart"
+      },
+      {
+          :name => "homer"
+      }
+  ]
+end
+
 def competitors
   [
       {

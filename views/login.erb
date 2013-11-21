@@ -1,0 +1,14 @@
+<html>
+<body>
+<h1></h1>
+<label>
+    <select name="kari">
+        <% karis.each_with_index do |kari, index| %>
+            <option id="<%=index%>"><%=kari[:name]%></option>
+        <% end %>
+
+    </select>
+</label>
+
+</body>
+</html>
