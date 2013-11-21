@@ -1,0 +1,36 @@
+SHM system?
+ 4 Notebooks / Pads
+ 1 Server
+WLAN verbindung
+
+
+
+///////////////////////////
+Daten
+///////////////////////////
+Turner:
+int:id, String:Name, int:klasse, String:Uni, Int:Manschaft, char:Geschlecht, int:Riege, 8 ints fuer die wertungen
+
+der einfachheit wuerd ich die wertungen gleich in die tabelle nehmen. eigentlich gibt es 6 maennergeraete und 4 frauengeraete. insgesamt 8 verschiedene geraete. von den 8 ints sind dann also 4 immer leer (weil alle nur 4 geraete turnen)
+
+///////////////////////////
+Kariseite
+///////////////////////////
+
+Turner auswaehlen, Geraet auswaehlen, Wertung eingeben
+ SEND Button
+
+Triviales loginsystem? (einfach 4 links) -> oder einfach WLAN passwort
+
+///////////////////////////
+AdminSeite
+///////////////////////////
+
+Loging in Textdatei damit es kein Datenverlust geben kann!
+
+CRUD fuer Turner
+Datenuebersicht
+
+Druckansicht
+ Einzelwertung
+ Mannschaftswertung
