@@ -66,15 +66,19 @@ Geraet.add :reck
 Geraet.add :stufenbarren
 Geraet.add :schwebebalken
 
+enable :sessions
 def login
-  Kari.all()[@params[:kari].to_i]
+  session[:user_id] = @params[:kari].to_i unless @params[:kari].nil?
+  Kari.all()[session[:user_id]]
 end
 
+set :public_folder, File.dirname(__FILE__) + '/static'
+
 get '/' do
-  erb :login, :locals=>{:karis=>Kari.all}
+  erb :login, :layout => :layout, :locals=>{:karis=>Kari.all}
 end
 
 post '/login' do
 
-  erb :bewerten, :locals=>{:kari=>login(), :geraete=>Geraet.all, :turners=>Turner.all }
+  erb :bewerten, :layout => :layout, :locals=>{:kari=>login(), :geraete=>Geraet.all, :turners=>Turner.all }
 end
