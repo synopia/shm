@@ -1,7 +1,8 @@
 require 'sinatra'
+require 'data'
 
 
 
 get '/hi' do
-  "Hello World!"
+  data()[1].to_s
 end
