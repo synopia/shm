@@ -1,14 +1,16 @@
 <html>
 <body>
 <h1></h1>
-<label>
-    <select name="kari">
-        <% karis.each_with_index do |kari, index| %>
-            <option id="<%=index%>"><%=kari[:name]%></option>
-        <% end %>
+<form action="login" method="post">
+    <label>
+        <select name="kari">
+            <% karis.each_with_index do |kari, index| %>
+                <option value="<%=index%>"><%=kari[:name]%></option>
+            <% end %>
 
-    </select>
-</label>
-
+        </select>
+    </label>
+    <input type="submit">
+</form>
 </body>
 </html>
