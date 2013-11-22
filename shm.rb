@@ -22,49 +22,49 @@ class Turner
         }
     }
   end
+  def self.find_by_geschlecht geschlecht
+    @all.select do |t|
+      t[:geschlecht].include? geschlecht
+    end
+  end
+
 
   def self.all
     @all
   end
+end
+
+
+class Kari
+  def self.add name, geschlecht
+    @all ||= []
+    @all << { :name => name, :geschlecht => geschlecht    }
+  end
+
+  def self.all
+    @all
+  end
+end
+
+
+class Geraet
+  def self.add name, geschlecht
+    @all ||= []
+    @all << { :name=>name, :geschlecht=>geschlecht }
+  end
+
+  def self.all
+    @all
+  end
+  def self.find_by_geschlecht geschlecht
+    @all.select do |g|
+      g[:geschlecht].include? geschlecht
+    end
+  end
+
 end
 
 require_relative 'data'
-
-class Kari
-  def self.add name
-    @all ||= []
-    @all << { :name => name }
-  end
-
-  def self.all
-    @all
-  end
-end
-
-Kari.add "lisa"
-Kari.add "maggy"
-Kari.add "bart"
-Kari.add "homer"
-
-class Geraet
-  def self.add name
-    @all ||= []
-    @all << { :name=>name }
-  end
-
-  def self.all
-    @all
-  end
-end
-
-Geraet.add :boden
-Geraet.add :pauschenpferd
-Geraet.add :ringe
-Geraet.add :sprung
-Geraet.add :barren
-Geraet.add :reck
-Geraet.add :stufenbarren
-Geraet.add :schwebebalken
 
 enable :sessions
 def login
@@ -79,6 +79,9 @@ get '/' do
 end
 
 post '/login' do
+  kari = login()
+  geraete = Geraet.find_by_geschlecht(kari[:geschlecht])
+  turner = Turner.find_by_geschlecht(kari[:geschlecht])
 
-  erb :bewerten, :layout => :layout, :locals=>{:kari=>login(), :geraete=>Geraet.all, :turners=>Turner.all }
+  erb :bewerten, :layout => :layout, :locals=>{:kari=>login(), :geraete=> geraete, :turners=>turner }
 end
