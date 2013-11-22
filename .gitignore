@@ -20,3 +20,5 @@ doc/
 # idea
 .idea
 *.iml
+
+wertungen.json
