@@ -120,7 +120,7 @@ if ARGV[0]=='seed'
       geraete = %w(Sprung Barren Schwebebalken Boden)
     end
     geraete.each do |g|
-      tu[:wertungen][g.downcase] = 1
+      tu[:wertungen][g.downcase] = Random.rand(20)
     end
     Turner.save_wertungen
   end

@@ -1,6 +1,3 @@
-<html>
-
-<body>
 <h1>SHM 2013 Einzelwertung</h1>
 
 <table id="table" class="tablesorter-blue">
@@ -10,17 +7,13 @@
         <th>Turner</th>
         <th>Klasse</th>
         <th class="empty-bottom">Boden</th>
-        <th class="empty-bottom">Pauschenpferd</th>
+        <th class="empty-bottom">PP</th>
         <th class="empty-bottom">Ringe</th>
         <th class="empty-bottom">Sprung</th>
         <th class="empty-bottom">Barren</th>
         <th class="empty-bottom">Reck</th>
-        <th class="empty-bottom">Schwebebalken</th>
         <th class="empty-bottom">Punkte</th>
         <th class="empty-bottom">Platz</th>
-        <th class="empty-bottom">Mannschaftspunkte</th>
-        <th class="empty-bottom">Mannschaftsplatz</th>
-
     </tr>
     </thead>
     <tbody>
@@ -36,11 +29,8 @@
             <td><%= turner[:wertungen]["sprung"] %></td>
             <td><%= turner[:wertungen]["barren"] %></td>
             <td><%= turner[:wertungen]["reck"] %></td>
-            <td><%= turner[:wertungen]["schwebebalken"] %></td>
             <td><%= turner[:wertungen]["punkte"] %></td>
             <td><%= turner[:wertungen]["platz"]%></td>
-            <td><%= turner[:wertungen]["team_punkte"] %></td>
-            <td><%= turner[:wertungen]["team_platz"]%></td>
         </tr>
         <% end %>
     <% end %>
@@ -55,13 +45,10 @@
     <th>Klasse</th>
     <th class="empty-bottom">Boden</th>
     <th class="empty-bottom">Sprung</th>
-    <th class="empty-bottom">Schwebebalken</th>
-    <th class="empty-bottom">Stufenbarren</th>
+    <th class="empty-bottom">Balken</th>
+    <th class="empty-bottom">Barren</th>
     <th class="empty-bottom">Punkte</th>
     <th class="empty-bottom">Platz</th>
-    <th class="empty-bottom">Mannschaftspunkte</th>
-    <th class="empty-bottom">Mannschaftsplatz</th>
-
   </tr>
   </thead>
   <tbody>
@@ -74,17 +61,12 @@
             <td><%= turner[:wertungen]["boden"] %></td>
             <td><%= turner[:wertungen]["sprung"] %></td>
             <td><%= turner[:wertungen]["schwebebalken"] %></td>
-            <td><%= turner[:wertungen]["stufenbarren"] %></td>
+            <td><%= turner[:wertungen]["barren"] %></td>
             <td><%= turner[:wertungen]["punkte"] %></td>
             <td><%= turner[:wertungen]["platz"]%></td>
-            <td><%= turner[:wertungen]["team_punkte"] %></td>
-            <td><%= turner[:wertungen]["team_platz"]%></td>
           </tr>
       <% end %>
   <% end %>
   </tbody>
 </table>
 
-
-</body>
-</html>

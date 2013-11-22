@@ -5,12 +5,12 @@
 # Tu Dresden
 Turner.add( 1, "TU-Dresden",1,"Jakob Bochmann",     "KM2",1,'m')
 Turner.add( 2, "TU-Dresden",1,"Nico Bölke",         "KM3",1,'m')
-Turner.add( 3, "TU-Dresden",1,"Stefanie Hamann",    "KM2",3,'w')
+Turner.add( 3, "TU-Dresden",2,"Stefanie Hamann",    "KM2",3,'w')
 Turner.add( 4, "TU-Dresden",1,"Fabian Klause",      "KM2",1,'m')
 Turner.add( 5, "TU-Dresden",2,"Annelie Bedrich",    "KM3",3,'w')
 Turner.add( 6, "TU-Dresden",2,"Julia Kalz",         "KM4",3,'w')
 Turner.add( 7, "TU-Dresden",2,"Barbara Nacke",      "KM3",3,'w')
-Turner.add( 8, "TU-Dresden",2,"Kelly Schaunsland",  "KM3",3,'w')
+Turner.add( 8, "TU-Dresden",1,"Kelly Schaunsland",  "KM3",3,'w')
 Turner.add( 9, "TU-Dresden",3,"Alexander Kemnitz",  "KM4",2,'m')
 Turner.add(10, "TU-Dresden",3,"Marie Kubicova",     "KM4",4,'w')
 

@@ -1,0 +1,40 @@
+<h1>SHM 2013 Mannchaftswertung</h1>
+
+<table id="table" class="tablesorter-blue">
+  <thead>
+  <tr>
+    <th>Mannschaft</th>
+    <th>Turner</th>
+    <th>Klasse</th>
+    <th class="empty-bottom">Boden</th>
+    <th class="empty-bottom">PP</th>
+    <th class="empty-bottom">Ringe</th>
+    <th class="empty-bottom">Sprung</th>
+    <th class="empty-bottom">Barren</th>
+    <th class="empty-bottom">Reck</th>
+    <th class="empty-bottom">Balken</th>
+    <th class="empty-bottom">Punkte</th>
+    <th class="empty-bottom">Platz</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% turners.each do |turner| %>
+      <% if turner[:geschlecht] == 'm' %>
+          <tr>
+            <td><%= turner[:mannschaft] %></td>
+            <td><%= turner[:name] %></td>
+            <td><%= turner[:km] %></td>
+            <td><%= turner[:wertungen]["boden"] %></td>
+            <td><%= turner[:wertungen]["pauschenpferd"] %></td>
+            <td><%= turner[:wertungen]["ringe"] %></td>
+            <td><%= turner[:wertungen]["sprung"] %></td>
+            <td><%= turner[:wertungen]["barren"] %></td>
+            <td><%= turner[:wertungen]["reck"] %></td>
+            <td><%= turner[:wertungen]["punkte"] %></td>
+            <td><%= turner[:wertungen]["platz"]%></td>
+          </tr>
+      <% end %>
+  <% end %>
+  </tbody>
+</table>
+
