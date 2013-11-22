@@ -13,7 +13,7 @@ class Turner
         :km => km,
         :riege => riege,
         :geschlecht => geschlecht,
-        :wertungen => {
+        #:wertungen => {
             :boden => boden,
             :pauschenpferd => pauschenpferd,
             :ringe => ringe,
@@ -22,7 +22,7 @@ class Turner
             :reck => reck,
             :stufenbarren => -stufenbarren,
             :schwebebalken => schwebebalken
-        }
+        #}
     }
     $id = $id + 1
   end
@@ -34,6 +34,13 @@ class Turner
   def self.find_by_riege riege
     @all.select do |t|
       t[:riege] == riege
+    end
+  end
+  def self.find_by_id id
+    @all.each do |t|
+      if t[:id] == id
+        return t
+      end
     end
   end
 
@@ -76,14 +83,15 @@ end
 
 post '/frauen' do
   puts @params.to_s
-  puts @params[:turner]
-  #turner.all[@params[:turner]]
+  tu = Turner.find_by_id(@params[:turner].to_i)
+  tu[@params[:geraet].to_sym] = @params[:wertung].to_f
   redirect '/frauen'
 end
 
 post '/maenner' do
   puts @params.to_s
-  puts @params[:turner]
+  tu = Turner.find_by_id(@params[:turner].to_i)
+  tu[@params[:geraet].to_sym] = @params[:wertung].to_f
   redirect '/maenner'
 end
 

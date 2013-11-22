@@ -19,9 +19,11 @@
 
   <div id='riege3'>
     <h2>Riege 1</h2>
+
       <% riege1.each do |turner| %>
           <input type="radio" id="radioturner<%=turner[:id]%>" name="turner" value="<%=turner[:id]%>">
-          <label for="radioturner<%=turner[:id]%>"><strong><%=turner[:km] %></strong>, <%=turner[:name] %> <%=turner[:id]%></label>
+          <label for="radioturner<%=turner[:id]%>"><strong><%=turner[:km] %></strong>, <%=turner[:name] %> <%=turner[:id]%>
+          </label>
       <% end %>
   </div>
 
