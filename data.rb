@@ -37,7 +37,7 @@ Turner.add(22, "TU-Chemnitz",1,"David Bauer",       "KM4",2,'m')
 Turner.add(23, "TU-Chemnitz",1,"Nico Treffkorn",    "KM4",2,'m')
 Turner.add(24, "TU-Chemnitz",1,"Jan Thiele",        "KM4",2,'m')
 Turner.add(25, "TU-Chemnitz",2,"Sophie Henning",    "KM3",4,'w')
-Turner.add(26, "TU-Chemnitz",2,"Anna Engel-Kreher", "KM3",4,'w')
+Turner.add(26, "TU-Chemnitz",2,"Anna Engel-Kreher", "KM4",4,'w')
 Turner.add(27, "TU-Chemnitz",2,"Regina Rubi",       "KM3",4,'w')
 Turner.add(28, "TU-Chemnitz",2,"Luise Müller",      "KM3",4,'w')
 

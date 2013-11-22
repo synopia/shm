@@ -25,6 +25,7 @@
     </thead>
     <tbody>
     <% turners.each do |turner| %>
+        <% if turner[:geschlecht] == 'm' %>
         <tr>
             <td><%= turner[:mannschaft] %></td>
             <td><%= turner[:name] %></td>
@@ -41,9 +42,49 @@
             <td><%= turner[:wertungen]["team_punkte"] %></td>
             <td><%= turner[:wertungen]["team_platz"]%></td>
         </tr>
+        <% end %>
     <% end %>
     </tbody>
 </table>
+
+<table id="table2" class="tablesorter-blue">
+  <thead>
+  <tr>
+    <th>Mannschaft</th>
+    <th>Turner</th>
+    <th>Klasse</th>
+    <th class="empty-bottom">Boden</th>
+    <th class="empty-bottom">Sprung</th>
+    <th class="empty-bottom">Schwebebalken</th>
+    <th class="empty-bottom">Stufenbarren</th>
+    <th class="empty-bottom">Punkte</th>
+    <th class="empty-bottom">Platz</th>
+    <th class="empty-bottom">Mannschaftspunkte</th>
+    <th class="empty-bottom">Mannschaftsplatz</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <% turners.each do |turner| %>
+      <% if turner[:geschlecht] == 'w' %>
+          <tr>
+            <td><%= turner[:mannschaft] %></td>
+            <td><%= turner[:name] %></td>
+            <td><%= turner[:km] %></td>
+            <td><%= turner[:wertungen]["boden"] %></td>
+            <td><%= turner[:wertungen]["sprung"] %></td>
+            <td><%= turner[:wertungen]["schwebebalken"] %></td>
+            <td><%= turner[:wertungen]["stufenbarren"] %></td>
+            <td><%= turner[:wertungen]["punkte"] %></td>
+            <td><%= turner[:wertungen]["platz"]%></td>
+            <td><%= turner[:wertungen]["team_punkte"] %></td>
+            <td><%= turner[:wertungen]["team_platz"]%></td>
+          </tr>
+      <% end %>
+  <% end %>
+  </tbody>
+</table>
+
 
 </body>
 </html>
