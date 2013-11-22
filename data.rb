@@ -1,3 +1,19 @@
+# encoding: utf-8
+
+Kari.add "lisa", "w"
+Kari.add "maggy", "w"
+Kari.add "bart", "m"
+Kari.add "homer", "m"
+
+Geraet.add :boden, "mn"
+Geraet.add :pauschenpferd, "m"
+Geraet.add :ringe, "m"
+Geraet.add :sprung, "wm"
+Geraet.add :barren, "mw"
+Geraet.add :reck, "m"
+Geraet.add :stufenbarren, "w"
+Geraet.add :schwebebalken, "w"
+
 # Uni Mannschaft Name Leistungsklasse Riege Geschlecht
 
 # Tu Dresden
