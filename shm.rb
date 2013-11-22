@@ -9,7 +9,7 @@ class Turner
     @all << {
         :id => id,
         :uni => uni,
-        :mannschaft => mannschaft,
+        :mannschaft => "#{uni} #{mannschaft}",
         :name => name,
         :km => km,
         :riege => riege,
@@ -30,12 +30,37 @@ class Turner
   end
 
   def self.update_punkte
+    team_punkte = {}
     @all.each do |tu|
-      sum = tu[:wertungen].reject{|k,v| k=='id' || k=='punkte' || k=='platz' }.values.inject(:+)
+      sum = tu[:wertungen].reject{|k,v| k=='id' || k=='punkte' || k=='platz' || k=='team_punkte' || k=='team_platz' }.values.inject(:+)
       tu[:wertungen]["punkte"] = sum
+      unless sum.nil?
+        sum += team_punkte[tu[:mannschaft]]||0
+        team_punkte[tu[:mannschaft]]=sum
+      end
     end
-    @all.sort_by { |a| a[:wertungen]["punkte"].nil? ? 100000 : -a[:wertungen]["punkte"] }.each_with_index do |tu, index|
-      tu[:wertungen]["platz"] = index + 1 unless tu[:wertungen]["punkte"].nil?
+
+    index = 1
+    team_punkte.sort_by{ |k,v| -v}.each do |k,v|
+      @all.each do |tu|
+        if tu[:mannschaft]==k
+          tu[:wertungen]["team_platz"]=index
+          tu[:wertungen]["team_punkte"] = v
+        end
+      end
+      index+=1
+    end
+    (1..4).each do |km|
+      self.calc_platz 'w', "KM#{km}"
+      self.calc_platz 'm', "KM#{km}"
+    end
+  end
+
+  def self.calc_platz geschlecht, km
+    @all.select{ |tu| tu[:geschlecht]==geschlecht && tu[:km]==km }
+        .sort_by { |a| a[:wertungen]["punkte"].nil? ? 100000 : -a[:wertungen]["punkte"] }
+        .each_with_index do |tu, index|
+      tu[:wertungen]["platz"] = index + 1
     end
   end
 
@@ -111,5 +136,10 @@ end
 get '/einzelwertungen' do
   Turner.load_wertungen
   turner = Turner.all
+  erb :einzelwertungen, :layout => :layout, :locals=>{ :turners=>turner }
+end
+get '/einzelwertungen/:geschlecht' do |geschlecht|
+  Turner.load_wertungen
+  turner = Turner.find_by_geschlecht(geschlecht)
   erb :einzelwertungen, :layout => :layout, :locals=>{ :turners=>turner }
 end

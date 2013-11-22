@@ -18,12 +18,15 @@
         <th class="empty-bottom">Schwebebalken</th>
         <th class="empty-bottom">Punkte</th>
         <th class="empty-bottom">Platz</th>
+        <th class="empty-bottom">Mannschaftspunkte</th>
+        <th class="empty-bottom">Mannschaftsplatz</th>
+
     </tr>
     </thead>
     <tbody>
     <% turners.each do |turner| %>
         <tr>
-            <td><%= turner[:uni] %> <%= turner[:mannschaft] %></td>
+            <td><%= turner[:mannschaft] %></td>
             <td><%= turner[:name] %></td>
             <td><%= turner[:km] %></td>
             <td><%= turner[:wertungen]["boden"] %></td>
@@ -35,6 +38,8 @@
             <td><%= turner[:wertungen]["schwebebalken"] %></td>
             <td><%= turner[:wertungen]["punkte"] %></td>
             <td><%= turner[:wertungen]["platz"]%></td>
+            <td><%= turner[:wertungen]["team_punkte"] %></td>
+            <td><%= turner[:wertungen]["team_platz"]%></td>
         </tr>
     <% end %>
     </tbody>
