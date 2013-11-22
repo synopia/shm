@@ -80,8 +80,23 @@ end
 
 post '/login' do
   kari = login()
+  if kari.nil?
+    redirect '/'
+  else
+    redirect '/wertung'
+  end
+end
+
+get '/wertung' do
+  kari = login()
   geraete = Geraet.find_by_geschlecht(kari[:geschlecht])
   turner = Turner.find_by_geschlecht(kari[:geschlecht])
 
   erb :bewerten, :layout => :layout, :locals=>{:kari=>login(), :geraete=> geraete, :turners=>turner }
+end
+
+post '/wertung' do
+  kari = login()
+  puts @params.to_s
+  redirect '/wertung'
 end
