@@ -22,7 +22,7 @@ class Turner
     begin
       data = JSON.parse File.read('wertungen.json')
       @all.each do |tu|
-        wertung = data.select{ |d| d[:id]==tu[:id]}.first
+        wertung = data.select{ |d| d['id'].to_i==tu[:id].to_i}.first
         tu[:wertungen] = wertung unless wertung.nil?
       end
     rescue
@@ -55,8 +55,6 @@ end
 
 require_relative 'data'
 
-Turner.load_wertungen
-
 enable :sessions
 
 set :public_folder, File.dirname(__FILE__) + '/static'
@@ -64,6 +62,7 @@ set :public_folder, File.dirname(__FILE__) + '/static'
 helpers do
   def update_turner
     session[:geraet] = @params[:geraet]
+    Turner.load_wertungen
     tu = Turner.find_by_id(@params[:turner].to_i)
     unless tu.nil?
       tu[:wertungen][@params[:geraet]] = @params[:wertung].gsub(',','.').to_f
