@@ -41,13 +41,22 @@ class Turner
     end
 
     index = 1
+    last_punkte = nil
+    last_platz = nil
     team_punkte.sort_by{ |k,v| -v}.each do |k,v|
+      if last_punkte==v
+        platz = last_platz
+      else
+        platz = index
+      end
       @all.each do |tu|
         if tu[:mannschaft]==k
-          tu[:wertungen]["team_platz"]=index
+          tu[:wertungen]["team_platz"] = platz
           tu[:wertungen]["team_punkte"] = v
         end
       end
+      last_platz = platz
+      last_punkte = v
       index+=1
     end
     (1..4).each do |km|
@@ -57,10 +66,20 @@ class Turner
   end
 
   def self.calc_platz geschlecht, km
+    last_punkte = nil
+    last_platz = nil
+
     @all.select{ |tu| tu[:geschlecht]==geschlecht && tu[:km]==km }
         .sort_by { |a| a[:wertungen]["punkte"].nil? ? 100000 : -a[:wertungen]["punkte"] }
         .each_with_index do |tu, index|
-      tu[:wertungen]["platz"] = index + 1
+      if last_punkte==tu[:wertungen]["punkte"]
+        platz = last_platz
+      else
+        platz = index + 1
+      end
+      tu[:wertungen]["platz"] = platz
+      last_platz = platz
+      last_punkte = tu[:wertungen]["punkte"]
     end
   end
 
@@ -91,7 +110,21 @@ end
 
 require_relative 'data'
 
-
+if ARGV[0]=='seed'
+  puts 'generate seed'
+  Turner.all.each do |tu|
+    geraete = nil
+    if tu[:geschlecht]=='m'
+      geraete = %w(Boden Pauschenpferd Ringe Sprung Barren Reck)
+    else
+      geraete = %w(Sprung Barren Schwebebalken Boden)
+    end
+    geraete.each do |g|
+      tu[:wertungen][g.downcase] = 1
+    end
+    Turner.save_wertungen
+  end
+end
 
 enable :sessions
 
