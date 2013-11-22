@@ -47,3 +47,6 @@ Turner.add("BA-Glauchau",1,"Klaus Kirchberger", "KM2",1,'m')
 # Hochschule Mittweida
 Turner.add("HS-Mittweida",1,"Martin Sonntag",   "KM4",2,'m')
 
+# Hochschule Zittau / Goerlitz
+Turner.add("HS-Zittau/Görlitz",1,"Tina Ebert",   "KM4",4,'w')
+
