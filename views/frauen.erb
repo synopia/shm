@@ -1,0 +1,40 @@
+<html>
+<body>
+<form action="frauen" method="post">
+  <div id='geraetauswahl'>
+    <h2>Gerät</h2>
+    <input type="radio" id="radio1" name="geraet" value="sprung" checked>
+    <label for="radio1">Sprung</label>
+    <input type="radio" id="radio2" name="geraet" value="stufenbarren">
+    <label for="radio2">Stufenbarren</label>
+    <input type="radio" id="radio3" name="geraet" value="schwebebalken">
+    <label for="radio3">Schwebebalken</label>
+    <input type="radio" id="radio4" name="geraet" value="boden">
+    <label for="radio4">Boden</label>
+  </div>
+
+  <div id='riege3'>
+    <h2>Riege 3</h2>
+      <% riege3.each do |turner| %>
+          <input type="radio" id="radioturner<%=turner[:id]%>" name="turner" value="<%=turner[:id]%>">
+          <label for="radioturner<%=turner[:id]%>"><strong><%=turner[:km] %></strong>, <%=turner[:name] %> <%=turner[:id]%></label>
+      <% end %>
+  </div>
+
+  <div id='riege3'>
+    <h2>Riege 4</h2>
+    <% riege4.each do |turner| %>
+          <input type="radio" id="radioturner<%=turner[:id]%>" name="turner" value="<%=turner[:id]%>">
+          <label for="radioturner<%=turner[:id]%>"><strong><%=turner[:km] %></strong>, <%=turner[:name] %></label>
+      <% end %>
+  </div>
+
+  <div>
+    <h2>Wertung</h2>
+    <input id='wertung' type="text" name="wertung"/><br>
+    <input id='submitbutton' type="submit">
+  </div>
+</form>
+
+</body>
+</html>

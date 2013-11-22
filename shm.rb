@@ -1,9 +1,12 @@
 require 'sinatra'
 
+$id = 1
+
 class Turner
-  def self.add( uni, mannschaft, name, km, riege, geschlecht )
+  def self.add( uni, mannschaft, name, km, riege, geschlecht, boden=-1, pauschenpferd=-1, ringe=-1, sprung=-1, barren=-1, reck=-1, stufenbarren=-1, schwebebalken=-1 )
     @all ||= []
     @all << {
+        :id => $id,
         :uni => uni,
         :mannschaft => mannschaft,
         :name => name,
@@ -11,58 +14,35 @@ class Turner
         :riege => riege,
         :geschlecht => geschlecht,
         :wertungen => {
-            :boden => -1,
-            :pauschenpferd => -1,
-            :ringe => -1,
-            :sprung => -1,
-            :barren => -1,
-            :reck => -1,
-            :stufenbarren => -1,
-            :schwebebalken => -1
+            :boden => boden,
+            :pauschenpferd => pauschenpferd,
+            :ringe => ringe,
+            :sprung => sprung,
+            :barren => barren,
+            :reck => reck,
+            :stufenbarren => -stufenbarren,
+            :schwebebalken => schwebebalken
         }
     }
+    $id = $id + 1
   end
   def self.find_by_geschlecht geschlecht
     @all.select do |t|
       t[:geschlecht].include? geschlecht
     end
   end
-
-
-  def self.all
-    @all
-  end
-end
-
-
-class Kari
-  def self.add name, geschlecht
-    @all ||= []
-    @all << { :name => name, :geschlecht => geschlecht    }
-  end
-
-  def self.all
-    @all
-  end
-end
-
-
-class Geraet
-  def self.add name, geschlecht
-    @all ||= []
-    @all << { :name=>name, :geschlecht=>geschlecht }
-  end
-
-  def self.all
-    @all
-  end
-  def self.find_by_geschlecht geschlecht
-    @all.select do |g|
-      g[:geschlecht].include? geschlecht
+  def self.find_by_riege riege
+    @all.select do |t|
+      t[:riege] == riege
     end
   end
 
+
+  def self.all
+    @all
+  end
 end
+
 
 require_relative 'data'
 
@@ -87,16 +67,34 @@ post '/login' do
   end
 end
 
-get '/wertung' do
-  kari = login()
-  geraete = Geraet.find_by_geschlecht(kari[:geschlecht])
-  turner = Turner.find_by_geschlecht(kari[:geschlecht])
+get '/frauen' do
+  riege3 = Turner.find_by_riege(3)
+  riege4 = Turner.find_by_riege(4)
 
-  erb :bewerten, :layout => :layout, :locals=>{:kari=>login(), :geraete=> geraete, :turners=>turner }
+  erb :frauen, :layout => :layout, :locals=>{:riege3=>riege3, :riege4=>riege4  }
 end
 
-post '/wertung' do
-  kari = login()
+post '/frauen' do
   puts @params.to_s
-  redirect '/wertung'
+  puts @params[:turner]
+  #turner.all[@params[:turner]]
+  redirect '/frauen'
+end
+
+post '/maenner' do
+  puts @params.to_s
+  puts @params[:turner]
+  redirect '/maenner'
+end
+
+get '/maenner' do
+  riege1 = Turner.find_by_riege(1)
+  riege2 = Turner.find_by_riege(2)
+
+  erb :maenner, :layout => :layout, :locals=>{:riege1=>riege1, :riege2=>riege2  }
+end
+
+get '/einzelwertungen' do
+  turner = Turner.all
+  erb :einzelwertungen, :layout => :layout, :locals=>{ :turners=>turner }
 end

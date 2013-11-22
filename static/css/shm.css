@@ -1,0 +1,51 @@
+/*
+  Hide radio button (the round disc)
+  we will use just the label to create pushbutton effect
+*/
+input[type=radio] {
+    display:none;
+    margin:10px;
+}
+
+div {
+    float: left;
+}
+
+/*
+  Change the look'n'feel of labels (which are adjacent to radiobuttons).
+  Add some margin, padding to label
+*/
+input[type=radio] + label {
+    /*display:inline-block;*/
+    margin:10px;
+    padding: 20px 30px;
+    background-color: #e7e7e7;
+    border-color: #ddd;
+}
+/*
+ Change background color for label next to checked radio button
+ to make it look like highlighted button
+*/
+input[type=radio]:checked + label {
+    background-image: none;
+    background-color: #bf4a50;
+    color: white;
+}
+
+#riege3 input[type=radio] + label {
+    /*display:inline-block;*/
+    padding: 10px 32px;
+    width: 180px;
+}
+#submitbutton {
+    width: 200px;
+    height: 100px;
+    background: lightgreen;
+    font-size: 20pt;
+}
+
+#wertung {
+    width: 200px;
+    height: 100px;
+    font-size: 50pt;
+}

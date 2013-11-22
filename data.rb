@@ -1,60 +1,46 @@
 # encoding: utf-8
 
-Kari.add "lisa", "w"
-Kari.add "maggy", "w"
-Kari.add "bart", "m"
-Kari.add "homer", "m"
-
-Geraet.add :boden, "mn"
-Geraet.add :pauschenpferd, "m"
-Geraet.add :ringe, "m"
-Geraet.add :sprung, "wm"
-Geraet.add :barren, "mw"
-Geraet.add :reck, "m"
-Geraet.add :stufenbarren, "w"
-Geraet.add :schwebebalken, "w"
-
 # Uni Mannschaft Name Leistungsklasse Riege Geschlecht
 
 # Tu Dresden
-Turner.add("TU-Dresden",1,"Bochmann, Jakob",     "KM2",1,'m')
-Turner.add("TU-Dresden",1,"Bölke, Nico",         "KM3",1,'m')
-Turner.add("TU-Dresden",1,"Hamann, Stefanie",    "KM2",1,'w')
-Turner.add("TU-Dresden",1,"Klause, Fabian",      "KM2",1,'m')
-Turner.add("TU-Dresden",2,"Bedrich, Annelie",    "KM3",1,'w')
-Turner.add("TU-Dresden",2,"Kalz, Julia",         "KM4",1,'w')
-Turner.add("TU-Dresden",2,"Nacke, Barbara",      "KM3",1,'w')
-Turner.add("TU-Dresden",2,"Schaunsland, Kelly",  "KM3",1,'w')
-Turner.add("TU-Dresden",3,"Kemnitz, Alexander",  "KM4",1,'m')
-Turner.add("TU-Dresden",3,"Kubicova, Marie",     "KM4",1,'w')
+Turner.add("TU-Dresden",1,"Jakob Bochmann",     "KM2",1,'m')
+Turner.add("TU-Dresden",1,"Nico Bölke",         "KM3",1,'m')
+Turner.add("TU-Dresden",1,"Stefanie Hamann",    "KM2",3,'w')
+Turner.add("TU-Dresden",1,"Fabian Klause",      "KM2",1,'m')
+Turner.add("TU-Dresden",2,"Annelie Bedrich",    "KM3",3,'w')
+Turner.add("TU-Dresden",2,"Julia Kalz",         "KM4",3,'w')
+Turner.add("TU-Dresden",2,"Barbara Nacke",      "KM3",3,'w')
+Turner.add("TU-Dresden",2,"Kelly Schaunsland",  "KM3",3,'w')
+Turner.add("TU-Dresden",3,"Alexander Kemnitz",  "KM4",2,'m')
+Turner.add("TU-Dresden",3,"Marie Kubicova",     "KM4",4,'w')
 
 # TU Freiberg
-Turner.add("TU-Freiberg",1,"Pollender, André",   "KM3",1,'m')
-Turner.add("TU-Freiberg",1,"Jäckel, Philipp",    "KM4",1,'m')
-Turner.add("TU-Freiberg",1,"Haupt, Amelie",      "KM4",1,'w')
-Turner.add("TU-Freiberg",1,"Schulze, Caroline",  "KM4",1,'w')
+Turner.add("TU-Freiberg",1,"André Pollender",   "KM3",1,'m')
+Turner.add("TU-Freiberg",1,"Philipp Jäckel",    "KM4",1,'m')
+Turner.add("TU-Freiberg",1,"Amelie Haupt",      "KM4",4,'w')
+Turner.add("TU-Freiberg",1,"Caroline Schulze",  "KM4",4,'w')
 # Ersatz Schumann, Julian
 
 # Uni Leipzig
-Turner.add("Uni-Leipzig",1,"Schmidt, Susi",      "KM3",1,'w')
-Turner.add("Uni-Leipzig",1,"Paschmann, Lisa",    "KM3",1,'w')
-Turner.add("Uni-Leipzig",1,"Holstein, Miriam",   "KM3",1,'w')
-Turner.add("Uni-Leipzig",1,"Haubner, Stephanie", "KM3",1,'w')
+Turner.add("Uni-Leipzig",1,"Susi Schmidt",      "KM3",3,'w')
+Turner.add("Uni-Leipzig",1,"Lisa Paschmann",    "KM3",3,'w')
+Turner.add("Uni-Leipzig",1,"Miriam Holstein",   "KM3",3,'w')
+Turner.add("Uni-Leipzig",1,"Stephanie Haubner", "KM3",3,'w')
 
 # HTW Dresden
-Turner.add("HTW-Dresden",1,"Leucht, Vivien",     "KM4",1,'w')
-Turner.add("HTW-Dresden",1,"Scharf, Alexandra",  "KM4",1,'w')
+Turner.add("HTW-Dresden",1,"Vivien Leucht",     "KM4",4,'w')
+Turner.add("HTW-Dresden",1,"Alexandra Scharf",  "KM4",4,'w')
 
 # TU Chemnitz
-Turner.add("TU-Chemnitz",1,"Uhle, Andre",        "KM3",1,'m')
-Turner.add("TU-Chemnitz",1,"Bauer, David",       "KM4",1,'m')
-Turner.add("TU-Chemnitz",1,"Treffkorn, Nico",    "KM4",1,'m')
-Turner.add("TU-Chemnitz",1,"Thiele, Jan",        "KM4",1,'m')
-Turner.add("TU-Chemnitz",2,"Henning, Sophie",    "KM3",1,'w')
-Turner.add("TU-Chemnitz",2,"Engel-Kreher, Anna", "KM3",1,'w')
-Turner.add("TU-Chemnitz",2,"Rubi, Regina",       "KM3",1,'w')
-Turner.add("TU-Chemnitz",2,"Müller, Luise",      "KM3",1,'w')
+Turner.add("TU-Chemnitz",1,"Andre Uhle",        "KM3",2,'m')
+Turner.add("TU-Chemnitz",1,"David Bauer",       "KM4",2,'m')
+Turner.add("TU-Chemnitz",1,"Nico Treffkorn",    "KM4",2,'m')
+Turner.add("TU-Chemnitz",1,"Jan Thiele",        "KM4",2,'m')
+Turner.add("TU-Chemnitz",2,"Sophie Henning",    "KM3",4,'w')
+Turner.add("TU-Chemnitz",2,"Anna Engel-Kreher", "KM3",4,'w')
+Turner.add("TU-Chemnitz",2,"Regina Rubi",       "KM3",4,'w')
+Turner.add("TU-Chemnitz",2,"Luise Müller",      "KM3",4,'w')
 
 # BA Glauchau
-Turner.add("BA-Glauchau",1,"Kirchberger, Klaus", "KM2",1,'m')
+Turner.add("BA-Glauchau",1,"Klaus Kirchberger", "KM2",1,'m')
 
