@@ -110,17 +110,20 @@ end
 
 require_relative 'data'
 
-Turner.all.each do |tu|
-  geraete = nil
-  if tu[:geschlecht]=='m'
-    geraete = %w(Boden Pauschenpferd Ringe Sprung Barren Reck)
-  else
-    geraete = %w(Sprung Barren Schwebebalken Boden)
+if ARGV[0]=='seed'
+  puts 'generate seed'
+  Turner.all.each do |tu|
+    geraete = nil
+    if tu[:geschlecht]=='m'
+      geraete = %w(Boden Pauschenpferd Ringe Sprung Barren Reck)
+    else
+      geraete = %w(Sprung Barren Schwebebalken Boden)
+    end
+    geraete.each do |g|
+      tu[:wertungen][g.downcase] = 1
+    end
+    Turner.save_wertungen
   end
-  geraete.each do |g|
-    tu[:wertungen][g.downcase] = 1
-  end
-  Turner.save_wertungen
 end
 
 enable :sessions
