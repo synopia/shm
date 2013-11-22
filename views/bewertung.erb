@@ -1,26 +1,26 @@
 <html>
 <body>
-<form action="frauen" method="post">
+<form action="<%= geschlecht %>" method="post">
     <div id='geraetauswahl'>
         <h2>Gerät</h2>
-        <% %w(Sprung Stufenbarren Schwebebalken Boden).each_with_index do |name, index| %>
+        <% geraete.each_with_index do |name, index| %>
             <input type="radio" id="radio<%= index+1 %>" name="geraet" value="<%= name.downcase %>" <%= geraet==name.downcase ? 'checked' : ''%>>
             <label for="radio<%= index+1%>"><%= name %></label>
         <% end %>
   </div>
 
-  <div id='riege3'>
-    <h2>Riege 3</h2>
-      <% riege3.each do |turner| %>
+  <div id='riege_a'>
+    <h2>Riege <%= riege_a %></h2>
+      <% Turner.find_by_riege(riege_a).each do |turner| %>
           <input type="radio" id="radioturner<%=turner[:id]%>" name="turner" value="<%=turner[:id]%>">
           <label for="radioturner<%=turner[:id]%>"><strong><%=turner[:km] %></strong>, <%=turner[:name] %></label>
       <% end %>
   </div>
 
 
-  <div id='riege3'>
-    <h2>Riege 4</h2>
-    <% riege4.each do |turner| %>
+  <div id='riege3_b'>
+    <h2>Riege <%= riege_b %></h2>
+    <% Turner.find_by_riege(riege_b).each do |turner| %>
           <input type="radio" id="radioturner<%=turner[:id]%>" name="turner" value="<%=turner[:id]%>">
           <label for="radioturner<%=turner[:id]%>"><strong><%=turner[:km] %></strong>, <%=turner[:name] %></label>
       <% end %>
