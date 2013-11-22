@@ -3,18 +3,10 @@
 <form action="maenner" method="post">
   <div id='geraetauswahl'>
     <h2>Gerät</h2>
-    <input type="radio" id="radio1" name="geraet" value="boden" checked>
-    <label for="radio1">Boden</label>
-    <input type="radio" id="radio2" name="geraet" value="pauschenpferd">
-    <label for="radio2">Pauschenpferd</label>
-    <input type="radio" id="radio3" name="geraet" value="ringe">
-    <label for="radio3">Ringe</label>
-    <input type="radio" id="radio4" name="geraet" value="sprung">
-    <label for="radio4">Sprung</label>
-    <input type="radio" id="radio5" name="geraet" value="barren">
-    <label for="radio5">Barren</label>
-    <input type="radio" id="radio6" name="geraet" value="reck">
-    <label for="radio6">Reck</label>
+      <% %w(Boden Pauschenpferd Ringe Sprung Barren Reck).each_with_index do |name, index| %>
+          <input type="radio" id="radio<%= index+1 %>" name="geraet" value="<%= name.downcase %>" <%= geraet==name.downcase ? 'checked' : ''%>>
+          <label for="radio<%= index+1%>"><%= name %></label>
+      <% end %>
   </div>
 
   <div id='riege3'>
@@ -22,7 +14,7 @@
 
       <% riege1.each do |turner| %>
           <input type="radio" id="radioturner<%=turner[:id]%>" name="turner" value="<%=turner[:id]%>">
-          <label for="radioturner<%=turner[:id]%>"><strong><%=turner[:km] %></strong>, <%=turner[:name] %> <%=turner[:id]%>
+          <label for="radioturner<%=turner[:id]%>"><strong><%=turner[:km] %></strong>, <%=turner[:name] %>
           </label>
       <% end %>
   </div>
