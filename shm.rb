@@ -14,7 +14,7 @@ class Turner
         :km => km,
         :riege => riege,
         :geschlecht => geschlecht,
-        :wertungen => { :id=>id }
+        :wertungen => { 'id'=>id }
     }
   end
 
@@ -29,8 +29,19 @@ class Turner
     end
   end
 
+  def self.update_punkte
+    @all.each do |tu|
+      sum = tu[:wertungen].reject{|k,v| k=='id' || k=='punkte' || k=='platz' }.values.inject(:+)
+      tu[:wertungen]["punkte"] = sum
+    end
+    @all.sort_by { |a| a[:wertungen]["punkte"].nil? ? 100000 : -a[:wertungen]["punkte"] }.each_with_index do |tu, index|
+      tu[:wertungen]["platz"] = index + 1 unless tu[:wertungen]["punkte"].nil?
+    end
+  end
+
   def self.save_wertungen
-    wertungen = @all.collect {|tu| tu[:wertungen] }
+    self.update_punkte
+    wertungen = @all.collect {|tu| tu[:wertungen]}
     File.open('wertungen.json', 'w') do |file|
       file.write wertungen.to_json
     end
@@ -84,7 +95,7 @@ get '/maenner' do
 end
 
 get '/frauen' do
-  bewertung( :frauen, 3, 4, %w(Sprung Stufenbarren Schwebebalken Boden))
+  bewertung( :frauen, 3, 4, %w(Sprung Barren Schwebebalken Boden))
 end
 
 post '/frauen' do
@@ -98,6 +109,7 @@ post '/maenner' do
 end
 
 get '/einzelwertungen' do
+  Turner.load_wertungen
   turner = Turner.all
   erb :einzelwertungen, :layout => :layout, :locals=>{ :turners=>turner }
 end
