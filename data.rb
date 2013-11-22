@@ -44,3 +44,6 @@ Turner.add("TU-Chemnitz",2,"Luise Müller",      "KM3",4,'w')
 # BA Glauchau
 Turner.add("BA-Glauchau",1,"Klaus Kirchberger", "KM2",1,'m')
 
+# Hochschule Mittweida
+Turner.add("HS-Mittweida",1,"Martin Sonntag",   "KM4",2,'m')
+

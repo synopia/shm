@@ -1,5 +1,7 @@
 require 'sinatra'
 
+set :bind, '0.0.0.0'
+
 $id = 1
 
 class Turner
