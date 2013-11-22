@@ -47,9 +47,9 @@ Turner.add("HTW-Dresden",1,"Scharf, Alexandra",  "KM4",1,'w')
 
 # TU Chemnitz
 Turner.add("TU-Chemnitz",1,"Uhle, Andre",        "KM3",1,'w')
-Turner.add("TU-Chemnitz",1,"Bauer, David",       "KM3",1,'w')
-Turner.add("TU-Chemnitz",1,"Treffkorn, Nico",    "KM3",1,'w')
-Turner.add("TU-Chemnitz",1,"Thiele, Jan",        "KM3",1,'w')
+Turner.add("TU-Chemnitz",1,"Bauer, David",       "KM4",1,'w')
+Turner.add("TU-Chemnitz",1,"Treffkorn, Nico",    "KM4",1,'w')
+Turner.add("TU-Chemnitz",1,"Thiele, Jan",        "KM4",1,'w')
 Turner.add("TU-Chemnitz",2,"Henning, Sophie",    "KM3",1,'w')
 Turner.add("TU-Chemnitz",2,"Engel-Kreher, Anna", "KM3",1,'w')
 Turner.add("TU-Chemnitz",2,"Rubi, Regina",       "KM3",1,'w')
